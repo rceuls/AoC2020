@@ -16,7 +16,7 @@ namespace AdventOfCode.Services
             Three
         }
 
-        public static long CreateExpenseReport(HashSet<int> input, ExpenseNumberCount calculator)
+        public static long CreateExpenseReport(IEnumerable<int> input, ExpenseNumberCount calculator)
         {
             return calculator switch
             {
@@ -26,7 +26,7 @@ namespace AdventOfCode.Services
             };
         }
 
-        public static long CreateExpenseReportTwo(HashSet<int> input)
+        public static long CreateExpenseReportTwo(IEnumerable<int> input)
         {
             var inputAsArray = input.ToArray();
 
@@ -46,7 +46,7 @@ namespace AdventOfCode.Services
             return validResults.Max();
         }
 
-        public static long CreateExpenseReportThree(HashSet<int> input)
+        public static long CreateExpenseReportThree(IEnumerable<int> input)
         {
             var inputAsArray = input.ToArray();
 

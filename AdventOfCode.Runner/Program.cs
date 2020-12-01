@@ -11,7 +11,7 @@ namespace AdventOfCode.Runner
         static void Main(string[] args)
         {
             // Day 1 - expense report calculation
-            var numbers = new HashSet<int>(File.ReadAllLines(Path.Combine(Environment.CurrentDirectory, "Input", "Day1.txt")).Select(int.Parse));
+            var numbers = File.ReadAllLines(Path.Combine(Environment.CurrentDirectory, "Input", "Day1.txt")).Select(int.Parse).ToArray();
          
             // 712075
             Console.WriteLine(ExpenseReportCalculator.CreateExpenseReport(numbers, ExpenseReportCalculator.ExpenseNumberCount.Two)); 
