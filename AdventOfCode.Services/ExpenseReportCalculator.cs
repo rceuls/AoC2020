@@ -4,8 +4,12 @@ using System.Linq;
 
 namespace AdventOfCode.Services
 {
+    /// <summary>
+    /// Code related to the day 1 problem. Use a list of integers to calculate expenses.
+    /// </summary>
     public class ExpenseReportCalculator
     {
+        private static int TARGET_NUMBER = 2020;
         public enum ExpenseNumberCount
         {
             Two,
@@ -32,7 +36,7 @@ namespace AdventOfCode.Services
             {
                 for (var j = i + 1; j < inputAsArray.Length; j++)
                 {
-                    if (inputAsArray[i] + inputAsArray[j] == 2020)
+                    if (inputAsArray[i] + inputAsArray[j] == TARGET_NUMBER)
                     {
                         validResults.Add(inputAsArray[i] * inputAsArray[j]);
                     }
@@ -54,7 +58,7 @@ namespace AdventOfCode.Services
                 {
                     for (var k = j + 1; k < inputAsArray.Length; k++)
                     {
-                        if (inputAsArray[i] + inputAsArray[j] + inputAsArray[k] == 2020)
+                        if (inputAsArray[i] + inputAsArray[j] + inputAsArray[k] == TARGET_NUMBER)
                         {
                             validResults.Add(inputAsArray[i] * inputAsArray[j] * inputAsArray[k]);
                         }

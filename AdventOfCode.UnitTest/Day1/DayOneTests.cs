@@ -13,7 +13,7 @@ namespace AdventOfCode.UnitTest.Day1
         public void PartOneTest()
         {
             var data = new HashSet<int>(new [] { 1721, 979, 366,  299, 675,1456 });
-            var result = ExpenseReportCalculator.CreateExpenseReport(data);
+            var result = ExpenseReportCalculator.CreateExpenseReport(data, ExpenseReportCalculator.ExpenseNumberCount.Two);
             Assert.AreEqual(514579, result);
         }
 
@@ -21,7 +21,7 @@ namespace AdventOfCode.UnitTest.Day1
         public void PartTwoTest()
         {
             var data = new HashSet<int>(new [] { 1721, 979, 366,  299, 675,1456 });
-            var result = ExpenseReportCalculator.CreateExpenseReport(data);
+            var result = ExpenseReportCalculator.CreateExpenseReport(data, ExpenseReportCalculator.ExpenseNumberCount.Three);
             Assert.AreEqual(241861950, result);
         }
     }
