@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace AdventOfCode.Services.Model
 {
@@ -13,7 +10,7 @@ namespace AdventOfCode.Services.Model
         public static PasswordPolicy Parse(string input)
         {
             var regexMatches = PwRegex.Match(input);
-            return new PasswordPolicy(regexMatches.Groups[4].Value, 
+            return new PasswordPolicy(regexMatches.Groups[4].Value,
                 Convert.ToChar(regexMatches.Groups[3].Value),
                 int.Parse(regexMatches.Groups[1].Value),
                 int.Parse(regexMatches.Groups[2].Value));
@@ -34,7 +31,7 @@ namespace AdventOfCode.Services.Model
         public char TargetChar { get; }
         public string Password { get; }
         private int MaxAsIndex { get; }
-        private int MinAsIndex { get;  }
+        private int MinAsIndex { get; }
 
         public bool IsValidForOldRentalPlace()
         {
