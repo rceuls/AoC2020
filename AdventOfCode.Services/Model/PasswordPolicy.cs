@@ -2,20 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace AdventOfCode.Services.Model
 {
     public class PasswordPolicy
     {
+        private static readonly Regex PwRegex = new Regex(@"(\d+)-(\d+)\s(\w):\s(\w+)");
         public static PasswordPolicy Parse(string input)
         {
-            var splittedBySpace = input.Split(' ');
-            var minMax = splittedBySpace[0].Split('-');
-            return new PasswordPolicy(splittedBySpace.Last(),
-                splittedBySpace[1].First(),
-                int.Parse(minMax[0]),
-                int.Parse(minMax[1]));
+            var regexMatches = PwRegex.Match(input);
+            return new PasswordPolicy(regexMatches.Groups[4].Value, 
+                Convert.ToChar(regexMatches.Groups[3].Value),
+                int.Parse(regexMatches.Groups[1].Value),
+                int.Parse(regexMatches.Groups[2].Value));
         }
 
         public PasswordPolicy(string password, char targetChar, int min, int max)
@@ -33,7 +34,6 @@ namespace AdventOfCode.Services.Model
         public char TargetChar { get; }
         public string Password { get; }
         private int MaxAsIndex { get; }
-
         private int MinAsIndex { get;  }
 
         public bool IsValidForOldRentalPlace()
@@ -51,7 +51,7 @@ namespace AdventOfCode.Services.Model
 
             var char1 = Password[MinAsIndex];
             var char2 = Password[MaxAsIndex];
-            return char1 != char2 && (char1 == TargetChar || char2 == TargetChar);
+            return (char1 == TargetChar ^ char2 == TargetChar);
         }
     }
 }
