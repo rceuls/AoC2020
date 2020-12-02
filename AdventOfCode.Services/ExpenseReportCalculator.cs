@@ -5,7 +5,7 @@ using System.Linq;
 namespace AdventOfCode.Services
 {
     /// <summary>
-    /// Code related to the day 1 problem. Use a list of integers to calculate expenses.
+    /// Code related to the day 1 problem. Use an enumerable of integers to calculate expenses.
     /// </summary>
     public class ExpenseReportCalculator
     {
@@ -26,9 +26,9 @@ namespace AdventOfCode.Services
             };
         }
 
-        public static long CreateExpenseReportTwo(IEnumerable<int> input)
+        private static long CreateExpenseReportTwo(IEnumerable<int> input)
         {
-            var inputAsArray = input.ToArray();
+            var inputAsArray = input.OrderBy(x => x).ToArray();
 
             var validResults = new HashSet<long>();
 
@@ -36,9 +36,14 @@ namespace AdventOfCode.Services
             {
                 for (var j = i + 1; j < inputAsArray.Length; j++)
                 {
-                    if (inputAsArray[i] + inputAsArray[j] == TARGET_NUMBER)
+                    var sum = inputAsArray[i] + inputAsArray[j];
+                    if (sum == TARGET_NUMBER)
                     {
                         validResults.Add(inputAsArray[i] * inputAsArray[j]);
+                    }
+                    else if (sum > 2020)
+                    {
+                        break;
                     }
                 }
             }
@@ -46,9 +51,9 @@ namespace AdventOfCode.Services
             return validResults.Max();
         }
 
-        public static long CreateExpenseReportThree(IEnumerable<int> input)
+        private static long CreateExpenseReportThree(IEnumerable<int> input)
         {
-            var inputAsArray = input.ToArray();
+            var inputAsArray = input.OrderBy(x => x).ToArray();
 
             var validResults = new HashSet<long>();
 
@@ -58,9 +63,14 @@ namespace AdventOfCode.Services
                 {
                     for (var k = j + 1; k < inputAsArray.Length; k++)
                     {
-                        if (inputAsArray[i] + inputAsArray[j] + inputAsArray[k] == TARGET_NUMBER)
+                        var sum = inputAsArray[i] + inputAsArray[j] + inputAsArray[k];
+                        if (sum == TARGET_NUMBER)
                         {
                             validResults.Add(inputAsArray[i] * inputAsArray[j] * inputAsArray[k]);
+                        }
+                        else if (sum > 2020)
+                        {
+                            break;
                         }
                     }
 

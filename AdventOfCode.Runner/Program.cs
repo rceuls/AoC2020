@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using AdventOfCode.Services;
@@ -56,7 +55,7 @@ namespace AdventOfCode.Runner
 
             var items = File.ReadAllLines(Path.Combine(Environment.CurrentDirectory, "Input", "Day2.txt"))
                 .Select(PasswordPolicy.Parse).ToArray();
-            
+
             // 416
             Console.WriteLine(PasswordPhilosophy.GetValidPasswords(items, PasswordPhilosophy.RentalPlace.Sleds).Length);
             // 688
