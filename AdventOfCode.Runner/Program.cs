@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using AdventOfCode.Services;
+using AdventOfCode.Services.Model;
 using CommandLine;
 
 namespace AdventOfCode.Runner
@@ -25,6 +26,9 @@ namespace AdventOfCode.Runner
                         case 1:
                             DayOne();
                             break;
+                        case 2:
+                            DayTwo();
+                            break;
                         default:
                             throw new NotImplementedException("Not available yet");
 
@@ -44,6 +48,19 @@ namespace AdventOfCode.Runner
             // 145245270
             Console.WriteLine(
                 ExpenseReportCalculator.CreateExpenseReport(numbers, ExpenseReportCalculator.ExpenseNumberCount.Three));
+        }
+
+        private static void DayTwo()
+        {
+            // Day 2 - pwd validity
+
+            var items = File.ReadAllLines(Path.Combine(Environment.CurrentDirectory, "Input", "Day2.txt"))
+                .Select(PasswordPolicy.Parse).ToArray();
+            
+            // 416
+            Console.WriteLine(PasswordPhilosophy.GetValidPasswords(items, PasswordPhilosophy.RentalPlace.Sleds).Length);
+            // 688
+            Console.WriteLine(PasswordPhilosophy.GetValidPasswords(items, PasswordPhilosophy.RentalPlace.Tobogan).Length);
         }
     }
 }
