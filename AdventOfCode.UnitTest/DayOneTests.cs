@@ -5,7 +5,7 @@ using System.Linq;
 using AdventOfCode.Services;
 using NUnit.Framework;
 
-namespace AdventOfCode.UnitTest.Day1
+namespace AdventOfCode.UnitTest
 {
     public class DayOneTests
     {
