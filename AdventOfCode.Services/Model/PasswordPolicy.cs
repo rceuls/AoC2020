@@ -11,10 +11,11 @@ namespace AdventOfCode.Services.Model
         public static PasswordPolicy Parse(string input)
         {
             var splittedBySpace = input.Split(' ');
+            var minMax = splittedBySpace[0].Split('-');
             return new PasswordPolicy(splittedBySpace.Last(),
                 splittedBySpace[1].First(),
-                int.Parse(splittedBySpace[0].Split('-')[0]),
-                int.Parse(splittedBySpace[0].Split('-')[1]));
+                int.Parse(minMax[0]),
+                int.Parse(minMax[1]));
         }
 
         public PasswordPolicy(string password, char targetChar, int min, int max)
