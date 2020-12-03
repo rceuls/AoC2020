@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace AdventOfCode.Services
 {
-    public class SlopeTreeCounter
+    public static class SlopeTreeCounter
     {
         private static char TREE = '#';
         public static long DescendAndCountTrees(string input, int down, int right)
@@ -19,9 +19,8 @@ namespace AdventOfCode.Services
             return treeCount;
         }
 
-        public static long DescendAndCountTreesMultipleSlopes(string input)
+        public static long DescendAndCountTreesMultipleSlopes(string input, IEnumerable<(int, int)> combos)
         {
-            var combos = new List<(int, int)> { (1, 1), (1, 3), (1, 5), (1, 7), (2, 1) };
             return combos.Select(x => DescendAndCountTrees(input, x.Item1, x.Item2)).Aggregate((acc, x) => acc * x);
         }
     }

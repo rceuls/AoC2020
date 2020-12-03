@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using AdventOfCode.Services;
@@ -55,7 +56,6 @@ namespace AdventOfCode.Runner
         private static void DayTwo()
         {
             // Day 2 - pwd validity
-
             var items = File.ReadAllLines(Path.Combine(Environment.CurrentDirectory, "Input", "Day2.txt"))
                 .Select(PasswordPolicy.Parse).ToArray();
 
@@ -70,8 +70,8 @@ namespace AdventOfCode.Runner
             var items = File.ReadAllText(Path.Combine(Environment.CurrentDirectory, "Input", "Day3.txt"));
 
             Console.WriteLine(SlopeTreeCounter.DescendAndCountTrees(items, 1, 3));
-            Console.WriteLine(SlopeTreeCounter.DescendAndCountTreesMultipleSlopes(items));
-
+            var combos = new List<(int, int)> { (1, 1), (1, 3), (1, 5), (1, 7), (2, 1) };
+            Console.WriteLine(SlopeTreeCounter.DescendAndCountTreesMultipleSlopes(items, combos));
         }
     }
 }
