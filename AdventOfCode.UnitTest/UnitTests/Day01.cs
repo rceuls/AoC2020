@@ -1,7 +1,7 @@
 using AdventOfCode.Services;
 using NUnit.Framework;
 
-namespace AdventOfCode.UnitTest
+namespace AdventOfCode.UnitTest.UnitTests
 {
     public class Day01
     {

@@ -3,7 +3,7 @@ using AdventOfCode.Services;
 using AdventOfCode.Services.Model;
 using NUnit.Framework;
 
-namespace AdventOfCode.UnitTest
+namespace AdventOfCode.UnitTest.UnitTests
 {
     public class Day02
     {
