@@ -20,7 +20,6 @@ namespace AdventOfCode.UnitTest.IntegrationTests
         [Test]
         public void PartOneTest()
         {
-            // 712075
             Assert.AreEqual(712075, 
                 ExpenseReportCalculator.CreateExpenseReport(_input, ExpenseReportCalculator.ExpenseNumberCount.Two));
         }
@@ -28,7 +27,6 @@ namespace AdventOfCode.UnitTest.IntegrationTests
         [Test]
         public void PartTwoTest()
         {
-            // 145245270
             Assert.AreEqual(145245270,
                 ExpenseReportCalculator.CreateExpenseReport(_input, ExpenseReportCalculator.ExpenseNumberCount.Three));
         }
