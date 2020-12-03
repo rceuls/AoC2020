@@ -8,7 +8,7 @@ namespace AdventOfCode.Services
     /// <summary>
     /// Code related to the day 2 problem. Calculate the validity of a password database
     /// </summary>
-    public class PasswordPhilosophy
+    public static class PasswordPhilosophy
     {
         public enum RentalPlace
         {
@@ -26,12 +26,12 @@ namespace AdventOfCode.Services
             };
         }
 
-        public static PasswordPolicy[] GetValidPasswordsOldRentalPlace(IEnumerable<PasswordPolicy> policies)
+        private static PasswordPolicy[] GetValidPasswordsOldRentalPlace(IEnumerable<PasswordPolicy> policies)
         {
             return policies.Where(p => p.IsValidForOldRentalPlace()).ToArray();
         }
 
-        public static PasswordPolicy[] GetValidPasswordsRentalPlace(IEnumerable<PasswordPolicy> policies)
+        private static PasswordPolicy[] GetValidPasswordsRentalPlace(IEnumerable<PasswordPolicy> policies)
         {
             return policies.Where(p => p.IsValidForNewRentalPlace()).ToArray();
 

@@ -7,7 +7,7 @@ namespace AdventOfCode.Services
     /// <summary>
     /// Code related to the day 1 problem. Use an enumerable of integers to calculate expenses.
     /// </summary>
-    public class ExpenseReportCalculator
+    public static class ExpenseReportCalculator
     {
         private static int TARGET_NUMBER = 2020;
         public enum ExpenseNumberCount
