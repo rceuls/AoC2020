@@ -3,7 +3,7 @@ using NUnit.Framework;
 
 namespace AdventOfCode.UnitTest
 {
-    public class DayOneTests
+    public class Day01
     {
         [Test]
         public void PartOneTest()

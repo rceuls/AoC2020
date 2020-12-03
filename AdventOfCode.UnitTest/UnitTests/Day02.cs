@@ -5,7 +5,7 @@ using NUnit.Framework;
 
 namespace AdventOfCode.UnitTest
 {
-    public class DayTwoTests
+    public class Day02
     {
         [Test]
         public void PartOneTest()
