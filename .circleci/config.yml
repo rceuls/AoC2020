@@ -6,6 +6,10 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Build App
+          name: Build
+          command:
+            dotnet build
+      - run:
+          name: Test
           command:
             dotnet test
