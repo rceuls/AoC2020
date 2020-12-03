@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using AdventOfCode.Services;
 using NUnit.Framework;
 
@@ -12,7 +8,7 @@ namespace AdventOfCode.UnitTest
         [Test]
         public void PartOneTest()
         {
-            var data = new [] { 1721, 979, 366,  299, 675,1456 };
+            var data = new[] { 1721, 979, 366, 299, 675, 1456 };
             var result = ExpenseReportCalculator.CreateExpenseReport(data, ExpenseReportCalculator.ExpenseNumberCount.Two);
             Assert.AreEqual(514579, result);
         }
@@ -20,7 +16,7 @@ namespace AdventOfCode.UnitTest
         [Test]
         public void PartTwoTest()
         {
-            var data = new [] { 1721, 979, 366,  299, 675,1456 };
+            var data = new[] { 1721, 979, 366, 299, 675, 1456 };
             var result = ExpenseReportCalculator.CreateExpenseReport(data, ExpenseReportCalculator.ExpenseNumberCount.Three);
             Assert.AreEqual(241861950, result);
         }

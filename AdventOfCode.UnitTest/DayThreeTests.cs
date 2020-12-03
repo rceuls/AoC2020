@@ -1,10 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using AdventOfCode.Services;
-using AdventOfCode.Services.Model;
 using NUnit.Framework;
 
 namespace AdventOfCode.UnitTest
