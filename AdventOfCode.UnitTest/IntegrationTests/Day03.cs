@@ -8,12 +8,12 @@ namespace AdventOfCode.UnitTest.IntegrationTests
 {
     public class Day03
     {
-        private string _items;
+        private string[] _items;
 
         [OneTimeSetUp]
         public void Setup()
         {
-            _items = File.ReadAllText(Path.Combine(Environment.CurrentDirectory, "IntegrationTests", "Input", "Day3.txt"));
+            _items = File.ReadAllText(Path.Combine(Environment.CurrentDirectory, "IntegrationTests", "Input", "Day3.txt")).Split(Environment.NewLine);
         }
         
         [Test]

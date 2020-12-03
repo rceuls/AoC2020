@@ -1,3 +1,4 @@
+using System;
 using AdventOfCode.Services;
 using NUnit.Framework;
 
@@ -18,7 +19,7 @@ namespace AdventOfCode.UnitTest.UnitTests
 .#........#.#........#.#........#.#........#.#........#.#........#
 #.##...#...#.##...#...#.##...#...#.##...#...#.##...#...#.##...#...
 #...##....##...##....##...##....##...##....##...##....##...##....#
-.#..#...#.#.#..#...#.#.#..#...#.#.#..#...#.#.#..#...#.#.#..#...#.#";
+.#..#...#.#.#..#...#.#.#..#...#.#.#..#...#.#.#..#...#.#.#..#...#.#".Split(Environment.NewLine);
             Assert.AreEqual(7, SlopeTreeCounter.DescendAndCountTrees(lines, 1, 3));
         }
     }
