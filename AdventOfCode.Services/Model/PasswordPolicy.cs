@@ -48,7 +48,7 @@ namespace AdventOfCode.Services.Model
 
             var char1 = Password[MinAsIndex];
             var char2 = Password[MaxAsIndex];
-            return (char1 == TargetChar ^ char2 == TargetChar);
+            return char1 == TargetChar ^ char2 == TargetChar;
         }
     }
 }

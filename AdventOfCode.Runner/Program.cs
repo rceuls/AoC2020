@@ -28,6 +28,9 @@ namespace AdventOfCode.Runner
                         case 2:
                             DayTwo();
                             break;
+                        case 3:
+                            DayThree();
+                            break;
                         default:
                             throw new NotImplementedException("Not available yet");
 
@@ -60,6 +63,15 @@ namespace AdventOfCode.Runner
             Console.WriteLine(PasswordPhilosophy.GetValidPasswords(items, PasswordPhilosophy.RentalPlace.Sleds).Length);
             // 688
             Console.WriteLine(PasswordPhilosophy.GetValidPasswords(items, PasswordPhilosophy.RentalPlace.Tobogan).Length);
+        }
+
+        private static void DayThree()
+        {
+            var items = File.ReadAllText(Path.Combine(Environment.CurrentDirectory, "Input", "Day3.txt"));
+
+            Console.WriteLine(SlopeTreeCounter.DescendAndCountTrees(items, 1, 3));
+            Console.WriteLine(SlopeTreeCounter.DescendAndCountTreesMultipleSlopes(items));
+
         }
     }
 }
