@@ -9,4 +9,9 @@
     <ProjectReference Include="..\AdventOfCode.Services\AdventOfCode.Services.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Input\Input.txt" />
+    <Content Include="Input\Input.txt" />
+  </ItemGroup>
+
 </Project>
