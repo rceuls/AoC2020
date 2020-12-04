@@ -6,7 +6,7 @@ using AdventOfCode.Services.Model;
 namespace AdventOfCode.Services
 {
     /// <summary>
-    /// Code related to the day 2 problem. Calculate the validity of a password database
+    /// Code related to the day 2 problem. Calculate the validity of a password database.
     /// </summary>
     public static class PasswordPhilosophy
     {
