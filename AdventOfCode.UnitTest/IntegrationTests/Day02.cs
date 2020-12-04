@@ -2,7 +2,6 @@ using System;
 using System.IO;
 using System.Linq;
 using AdventOfCode.Services;
-using AdventOfCode.Services.Model;
 using NUnit.Framework;
 
 namespace AdventOfCode.UnitTest.IntegrationTests
