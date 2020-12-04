@@ -39,10 +39,15 @@ namespace AdventOfCode.Services
                 }
                 case "hgt":
                 {
-                    var ending = relevantPart.Substring(relevantPart.Length - 2);
                     var start = relevantPart.Substring(0, relevantPart.Length - 2);
                     if (!int.TryParse(start, out var asInt)) return false;
-                    return ending == "cm" ? asInt >= 150 && asInt <= 193 : asInt >= 59 && asInt <= 76;
+                    var ending = relevantPart.Substring(relevantPart.Length - 2);
+                    return ending switch
+                    {
+                        "cm" => asInt >= 150 && asInt <= 193,
+                        "in" => asInt >= 59 && asInt <= 76,
+                        _ => false
+                    };
                 }
                 case "hcl":
                 {
