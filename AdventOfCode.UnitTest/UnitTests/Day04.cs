@@ -21,7 +21,7 @@ hgt:179cm
 
 hcl:#cfa07d eyr:2025 pid:166559648
 iyr:2011 ecl:brn hgt:59in";
-            Assert.AreEqual(2, PassportValidator.ValidPassports(input, PassportValidator.DefaultNeededFields));
+            Assert.AreEqual(2, PassportValidator.ValidPassports(input));
         }
         
         [Test]
@@ -39,7 +39,7 @@ pid:545766238 ecl:hzl
 eyr:2022
 
 iyr:2010 hgt:158cm hcl:#b6652a ecl:blu byr:1944 eyr:2021 pid:093154719";
-            Assert.AreEqual(4, PassportValidator.ValidPassportCountDeepCheck(input, PassportValidator.DefaultNeededFields));
+            Assert.AreEqual(4, PassportValidator.ValidPassportCountDeepCheck(input));
         }
         
         [Test]
@@ -58,7 +58,7 @@ ecl:brn hgt:182cm pid:021572410 eyr:2020 byr:1992 cid:277
 hgt:59cm ecl:zzz
 eyr:2038 hcl:74454a iyr:2023
 pid:3556412378 byr:2007";
-            Assert.AreEqual(0, PassportValidator.ValidPassportCountDeepCheck(input, PassportValidator.DefaultNeededFields));
+            Assert.AreEqual(0, PassportValidator.ValidPassportCountDeepCheck(input));
         }
     }
 }

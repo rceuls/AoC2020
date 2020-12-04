@@ -18,13 +18,13 @@ namespace AdventOfCode.UnitTest.IntegrationTests
         [Test]
         public void PartOneTest()
         {
-            Assert.AreEqual(250, PassportValidator.ValidPassports(_items, PassportValidator.DefaultNeededFields));
+            Assert.AreEqual(250, PassportValidator.ValidPassports(_items));
         }
         
         [Test]
         public void PartTwoTest()
         {
-            Assert.AreEqual(158, PassportValidator.ValidPassportCountDeepCheck(_items, PassportValidator.DefaultNeededFields));
+            Assert.AreEqual(158, PassportValidator.ValidPassportCountDeepCheck(_items));
         }
     }
 }
