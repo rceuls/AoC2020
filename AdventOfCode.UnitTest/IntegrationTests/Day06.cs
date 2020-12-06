@@ -34,5 +34,36 @@ namespace AdventOfCode.UnitTest.IntegrationTests
                     .Select(QuestionCounter.CountUniqueYes).ToArray();
             Assert.AreEqual(3596, answersFulls.Sum());
         }
+
+        [Test]
+        public void PartValeska()
+        {
+            var input = @"abcdefgh
+a
+aaaa
+a
+
+abc
+bca
+bbc
+
+a
+
+ab
+abamkqbsfsidhf
+
+cccc
+ccccc
+cccc
+
+c
+c
+cccc
+a";
+            var answersFulls=
+                input.Split(Environment.NewLine + Environment.NewLine)
+                    .Select(QuestionCounter.CountUniqueYes).ToArray();
+            Assert.AreEqual(7, answersFulls.Sum());
+        }
     }
 }

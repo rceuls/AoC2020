@@ -14,8 +14,13 @@ namespace AdventOfCode.Services
         public static long CountUniqueYes(string groupAnswers)
         {
             var peopleCount = groupAnswers.Count(x => x == '\n') + 1;
-            var mergedAnswers = groupAnswers.Replace(Environment.NewLine, "").GroupBy(x => x);
-            return mergedAnswers.Count(x => x.Count() == peopleCount);
+            var mergedAnswers = groupAnswers
+                .Split(Environment.NewLine)
+                .SelectMany(x => x.Distinct())
+                .GroupBy(x => x);
+            return mergedAnswers
+                .Where(x => x.Key != '\n')
+                .Count(x => x.Count() == peopleCount);
         }    
     }
 }
