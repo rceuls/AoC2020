@@ -8,10 +8,10 @@ namespace AdventOfCode.Services
     public record Validator
     {
         private static readonly HashSet<string> ValidHairColors =
-            new HashSet<string>(new[] {"amb", "blu", "brn", "gry", "grn", "hzl", "oth"});
+            new(new[] {"amb", "blu", "brn", "gry", "grn", "hzl", "oth"});
 
-        private static readonly Regex ValidPassportId = new Regex("^\\d{9}$");
-        private static readonly Regex ValidColor = new Regex("^\\#[a-f0-9]{6}$");
+        private static readonly Regex ValidPassportId = new("^\\d{9}$");
+        private static readonly Regex ValidColor = new("^\\#[a-f0-9]{6}$");
 
         public Validator(string name) => (Name) = (name);
         public string Name { get; }

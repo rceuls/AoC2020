@@ -11,6 +11,7 @@ namespace AdventOfCode.Services
 
         public string Name { get; }
     }
+    
     public static class BagCounter
     {
         public static (int Part1, int Part2) GetOuterBagCount(string[] split, string target)

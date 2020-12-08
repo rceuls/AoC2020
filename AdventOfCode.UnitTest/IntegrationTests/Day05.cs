@@ -13,8 +13,9 @@ namespace AdventOfCode.UnitTest.IntegrationTests
         [OneTimeSetUp]
         public void Setup()
         {
-            _items = File.ReadAllText(Path.Combine(Environment.CurrentDirectory, "IntegrationTests", "Input",
-                "Day5.txt")).Split(Environment.NewLine);
+            _items = TestUtil
+                .GetFileContents("Day5.txt")
+                .Split(Environment.NewLine);
         }
 
         [Test]

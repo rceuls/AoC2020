@@ -13,7 +13,10 @@ namespace AdventOfCode.UnitTest.IntegrationTests
         [OneTimeSetUp]
         public void Setup()
         {
-            _input = File.ReadAllLines(Path.Combine(Environment.CurrentDirectory, "IntegrationTests", "Input", "Day1.txt")).Select(int.Parse)
+            _input = TestUtil
+                .GetFileContents("Day1.txt")
+                .Split(Environment.NewLine)
+                .Select(int.Parse)
                 .ToArray();
         }
         

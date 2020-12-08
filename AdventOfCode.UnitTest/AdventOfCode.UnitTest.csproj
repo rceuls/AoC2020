@@ -17,30 +17,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="IntegrationTests\Input\Day1.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="IntegrationTests\Input\Day2.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="IntegrationTests\Input\Day3.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="IntegrationTests\Input\Day4.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="IntegrationTests\Input\Day5.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="IntegrationTests\Input\Day6.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="IntegrationTests\Input\Day7.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="IntegrationTests\Input\Day8.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <EmbeddedResource Include="IntegrationTests\Input\Day1.txt" />
+    <EmbeddedResource Include="IntegrationTests\Input\Day2.txt" />
+    <EmbeddedResource Include="IntegrationTests\Input\Day3.txt" />
+    <EmbeddedResource Include="IntegrationTests\Input\Day4.txt" />
+    <EmbeddedResource Include="IntegrationTests\Input\Day5.txt" />
+    <EmbeddedResource Include="IntegrationTests\Input\Day6.txt" />
+    <EmbeddedResource Include="IntegrationTests\Input\Day7.txt" />
+    <EmbeddedResource Include="IntegrationTests\Input\Day8.txt" />
   </ItemGroup>
 
 </Project>

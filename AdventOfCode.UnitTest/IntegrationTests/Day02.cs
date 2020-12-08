@@ -13,8 +13,11 @@ namespace AdventOfCode.UnitTest.IntegrationTests
         [OneTimeSetUp]
         public void Setup()
         {
-            _input = File.ReadAllLines(Path.Combine(Environment.CurrentDirectory, "IntegrationTests", "Input", "Day2.txt"))
-                .Select(PasswordPolicy.Parse).ToArray();
+            _input = TestUtil
+                .GetFileContents("Day2.txt")
+                .Split(Environment.NewLine)
+                .Select(PasswordPolicy.Parse)
+                .ToArray();
         }
         
         [Test]

@@ -26,8 +26,9 @@ dotted black bags contain no other bags.";
         [Test]
         public void TestPart1And2()
         {
-            var input = File.ReadAllText(Path.Combine(Environment.CurrentDirectory, "IntegrationTests", "Input",
-                "Day7.txt")).Split(Environment.NewLine);
+            var input = TestUtil
+                .GetFileContents("Day7.txt")
+                .Split(Environment.NewLine);
             var output = BagCounter.GetOuterBagCount(input, "shiny gold");
             Assert.AreEqual(259, output.Part1);
             Assert.AreEqual(45018, output.Part2);

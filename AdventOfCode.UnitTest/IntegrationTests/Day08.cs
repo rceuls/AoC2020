@@ -40,8 +40,9 @@ acc +6";
         [Test]
         public void TestPart1()
         {
-            var input = File.ReadAllText(Path.Combine(Environment.CurrentDirectory, "IntegrationTests", "Input",
-                "Day8.txt")).Split(Environment.NewLine);
+            var input = TestUtil
+                .GetFileContents("Day8.txt")
+                .Split(Environment.NewLine);
             var output = GameConsole.GetLastValueBeforeInfiniteLoop(input);
             Assert.AreEqual(1563, output);
         }
@@ -49,8 +50,9 @@ acc +6";
         [Test]
         public void TestPart2()
         {
-            var input = File.ReadAllText(Path.Combine(Environment.CurrentDirectory, "IntegrationTests", "Input",
-                "Day8.txt")).Split(Environment.NewLine);
+            var input = TestUtil
+                .GetFileContents("Day8.txt")
+                .Split(Environment.NewLine);
             var output = GameConsole.GetValue(input);
             // 2604 == too high
             Assert.AreEqual(767, output);
