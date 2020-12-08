@@ -41,7 +41,7 @@ namespace AdventOfCode.Services
                     {
                         validResults.Add(inputAsArray[i] * inputAsArray[j]);
                     }
-                    else if (sum > 2020)
+                    else if (sum > TARGET_NUMBER)
                     {
                         break;
                     }
@@ -68,7 +68,7 @@ namespace AdventOfCode.Services
                         {
                             validResults.Add(inputAsArray[i] * inputAsArray[j] * inputAsArray[k]);
                         }
-                        else if (sum > 2020)
+                        else if (sum > TARGET_NUMBER)
                         {
                             break;
                         }
