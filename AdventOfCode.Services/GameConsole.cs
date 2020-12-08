@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace AdventOfCode.Services
 {
@@ -21,62 +20,39 @@ namespace AdventOfCode.Services
         
         public GameConsoleOpAction Op { get; set; }
         public int OpCount { get; set; }
-        public long AccCount { get; set; }
     }
     
     public static class GameConsole
     {
         public static long GetLastValueBeforeInfiniteLoop(IEnumerable<string> input)
         {
-            var gameOps = ParseMethod(input);
+            var gameOps = ParseInput(input);
             
             var passedIndexes = new HashSet<int>();
-            var currentAccumelator = 0L;
+            var currentAccumulator = 0L;
             var currentIndex = 0;
             while (true)
             {
                 if (!passedIndexes.Add(currentIndex))
                 {
-                    return currentAccumelator;
+                    return currentAccumulator;
                 }
 
                 var targetOp = gameOps[currentIndex];
-                (currentAccumelator, currentIndex) = DoOp(targetOp, currentAccumelator, currentIndex);
+                (currentAccumulator, currentIndex) = DoOp(targetOp, currentAccumulator, currentIndex);
             }
-        }
-
-        private static (long accumelator, int currentIndex) DoOp(GameConsoleOperation targetOp, long currentAccumelator, int currentIndex)
-        {
-            switch (targetOp.Op)
-            {
-                case GameConsoleOpAction.Acc:
-                    currentAccumelator += targetOp.OpCount;
-                    targetOp.AccCount += currentAccumelator;
-                    currentIndex += 1;
-                    break;
-                case GameConsoleOpAction.Nop:
-                    currentIndex += 1;
-                    break;
-                case GameConsoleOpAction.Jmp:
-                    currentIndex += targetOp.OpCount;
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
-
-            return (currentAccumelator, currentIndex);
         }
 
         public static long GetValue(IEnumerable<string> input)
         {
-            var gameOps = ParseMethod(input);
+            var gameOps = ParseInput(input);
             var passedIndexes = new HashSet<int>();
             var lastChangedIndex = -1;
             
             while (true)
             {
                 var currentIndex = 0;
-                var currentAccumelator = 0L;
+                var currentAccumulator = 0L;
                 while (true)
                 {
                     if (!passedIndexes.Add(currentIndex))
@@ -94,16 +70,15 @@ namespace AdventOfCode.Services
 
                     if (!gameOps.ContainsKey(currentIndex)) 
                     {
-                        return currentAccumelator;
+                        return currentAccumulator;
                     }
                     var targetOp = gameOps[currentIndex];
-                    (currentAccumelator, currentIndex) = DoOp(targetOp, currentAccumelator, currentIndex);
+                    (currentAccumulator, currentIndex) = DoOp(targetOp, currentAccumulator, currentIndex);
                 }
             }
-            
         }
 
-        private static bool ChangeOp(Dictionary<int, GameConsoleOperation> gameOps, int i)
+        private static bool ChangeOp(IReadOnlyDictionary<int, GameConsoleOperation> gameOps, int i)
         {
             if (i < 0) return false;
             switch (gameOps[i].Op)
@@ -121,7 +96,7 @@ namespace AdventOfCode.Services
             }
         }
 
-        private static Dictionary<int, GameConsoleOperation> ParseMethod(IEnumerable<string> input)
+        private static Dictionary<int, GameConsoleOperation> ParseInput(IEnumerable<string> input)
         {
             var gameOps = new Dictionary<int, GameConsoleOperation>();
             var currentIndex = 0;
@@ -148,6 +123,28 @@ namespace AdventOfCode.Services
             }
 
             return gameOps;
+        }
+        
+        
+        private static (long accumelator, int currentIndex) DoOp(GameConsoleOperation targetOp, long currentAccumelator, int currentIndex)
+        {
+            switch (targetOp.Op)
+            {
+                case GameConsoleOpAction.Acc:
+                    currentAccumelator += targetOp.OpCount;
+                    currentIndex += 1;
+                    break;
+                case GameConsoleOpAction.Nop:
+                    currentIndex += 1;
+                    break;
+                case GameConsoleOpAction.Jmp:
+                    currentIndex += targetOp.OpCount;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+
+            return (currentAccumelator, currentIndex);
         }
     }
 }
