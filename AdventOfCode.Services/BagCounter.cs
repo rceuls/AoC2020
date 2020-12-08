@@ -3,21 +3,17 @@ using System.Linq;
 
 namespace AdventOfCode.Services
 {
-    public class BagRecord
+    public record BagRecord
     {
-        public BagRecord(string name, int count)
-        {
-            Name = name;
-            Count = count;
-        }
+        public BagRecord(string name, int count) => (Name, Count) = (name, count);
 
-        public int Count { get; set; }
+        public int Count { get; }
 
-        public string Name { get; set; }
+        public string Name { get; }
     }
     public static class BagCounter
     {
-        public static (int part1, int part2) GetOuterBagCount(string[] split, string target)
+        public static (int Part1, int Part2) GetOuterBagCount(string[] split, string target)
         {
             var bags = new Dictionary<string, List<BagRecord>>();
             ParseInput(split, bags);

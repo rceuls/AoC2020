@@ -20,7 +20,7 @@ vibrant plum bags contain 5 faded blue bags, 6 dotted black bags.
 faded blue bags contain no other bags.
 dotted black bags contain no other bags.";
 
-            Assert.AreEqual(4, BagCounter.GetOuterBagCount(input.Split(Environment.NewLine), "shiny gold").part1);
+            Assert.AreEqual(4, BagCounter.GetOuterBagCount(input.Split(Environment.NewLine), "shiny gold").Part1);
         }
 
         [Test]
@@ -29,8 +29,8 @@ dotted black bags contain no other bags.";
             var input = File.ReadAllText(Path.Combine(Environment.CurrentDirectory, "IntegrationTests", "Input",
                 "Day7.txt")).Split(Environment.NewLine);
             var output = BagCounter.GetOuterBagCount(input, "shiny gold");
-            Assert.AreEqual(259, output.part1);
-            Assert.AreEqual(45018, output.part2);
+            Assert.AreEqual(259, output.Part1);
+            Assert.AreEqual(45018, output.Part2);
 
         }
     }

@@ -10,16 +10,12 @@ namespace AdventOfCode.Services
         Jmp
     }
     
-    public class GameConsoleOperation
+    public record GameConsoleOperation
     {
-        public GameConsoleOperation(GameConsoleOpAction operation, int opCount)
-        {
-            Op = operation;
-            OpCount = opCount;
-        }
-        
         public GameConsoleOpAction Op { get; set; }
         public int OpCount { get; set; }
+        
+        public GameConsoleOperation(GameConsoleOpAction operation, int opCount) => (Op, OpCount) = (operation, opCount);
     }
     
     public static class GameConsole

@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 
 namespace AdventOfCode.Services
 {
-    public class Validator
+    public record Validator
     {
         private static readonly HashSet<string> ValidHairColors =
             new HashSet<string>(new[] {"amb", "blu", "brn", "gry", "grn", "hzl", "oth"});
@@ -13,11 +13,7 @@ namespace AdventOfCode.Services
         private static readonly Regex ValidPassportId = new Regex("^\\d{9}$");
         private static readonly Regex ValidColor = new Regex("^\\#[a-f0-9]{6}$");
 
-        public Validator(string name)
-        {
-            Name = name;
-        }
-
+        public Validator(string name) => (Name) = (name);
         public string Name { get; }
 
         public bool IsValid(string input)
