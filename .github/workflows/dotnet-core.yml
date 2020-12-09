@@ -23,15 +23,3 @@ jobs:
       run: dotnet build --configuration Release --no-restore
     - name: Test
       run: dotnet test --no-restore --logger "junit;LogFilePath=test-results/results.xml"
-
-  publish-test-results:
-    name: "Publish Unit Tests Results"
-    needs: build-and-test
-    runs-on: ubuntu-latest
-    steps:
-      - name: Publish Unit Test Results
-        uses: EnricoMi/publish-unit-test-result-action@v1.6
-        with:
-          check_name: Unit Test Results
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          files: test-results/results.xml
