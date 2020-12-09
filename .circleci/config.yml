@@ -1,4 +1,4 @@
-version: 2.0
+version: 2.1
 jobs:
   build:
     docker:
@@ -12,4 +12,11 @@ jobs:
       - run:
           name: Test
           command:
-            dotnet test
+            dotnet test --logger "junit;LogFilePath=test-results/results.xml"
+      - run:
+          name: Publish Unit Test Results
+          uses: EnricoMi/publish-unit-test-result-action@v1.6
+          if: always()
+          with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            files: test-results/**/*.xml
