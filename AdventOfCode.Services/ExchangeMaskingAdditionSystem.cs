@@ -6,7 +6,7 @@ namespace AdventOfCode.Services
 {
     public static class ExchangeMaskingAdditionSystem
     {
-        public static long GetFirstInvalidNumber(int preambleSize, long[] data)
+        private static long GetFirstInvalidNumber(int preambleSize, long[] data)
         {
             for (var x = 0; x < data.Length; x++)
             {
@@ -23,7 +23,7 @@ namespace AdventOfCode.Services
             return -1;
         }
         
-        public static long GetEncryptionWeakness(int preambleSize, long[] data)
+        public static (long WeakNumber, long Weakness) GetEncryptionWeakness(int preambleSize, long[] data)
         {
             var weakNumber = GetFirstInvalidNumber(preambleSize, data);
             while (data.Length > 0)
@@ -35,7 +35,7 @@ namespace AdventOfCode.Services
                     var sum = toCheck.Sum();
                     if (sum == weakNumber)
                     {
-                        return toCheck.Min() + toCheck.Max();
+                        return (weakNumber, toCheck.Min() + toCheck.Max());
                     }
                     if (sum > weakNumber)
                     {

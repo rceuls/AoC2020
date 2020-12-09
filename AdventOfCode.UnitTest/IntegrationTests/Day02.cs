@@ -14,7 +14,7 @@ namespace AdventOfCode.UnitTest.IntegrationTests
         public void Setup()
         {
             _input = TestUtil
-                .GetFileContents("Day2.txt")
+                .GetFileContentsAsString("Day2.txt")
                 .Split(Environment.NewLine)
                 .Select(PasswordPolicy.Parse)
                 .ToArray();

@@ -30,33 +30,20 @@ namespace AdventOfCode.UnitTest.IntegrationTests
 277
 309
 576".Split(Environment.NewLine).Select(long.Parse).ToArray();
-            Assert.AreEqual(127, ExchangeMaskingAdditionSystem.GetFirstInvalidNumber(5, input));
-            Assert.AreEqual(62, ExchangeMaskingAdditionSystem.GetEncryptionWeakness(5, input));
+            var (weakNumber, weakness) = ExchangeMaskingAdditionSystem.GetEncryptionWeakness(5, input);
+            Assert.AreEqual(127, weakNumber);
+            Assert.AreEqual(62, weakness);
 
         }
         
         [Test]
-        public void TestPart1()
+        public void TestFullData()
         {
-            var input = TestUtil
-                .GetFileContents("Day9.txt")
-                .Split(Environment.NewLine)
-                .Select(long.Parse)
-                .ToArray();
-            var output = ExchangeMaskingAdditionSystem.GetFirstInvalidNumber(25, input);
-            Assert.AreEqual(675280050, output);
+            var input = TestUtil.GetFileContentsAsLongs("Day9.txt");
+            var (weakNumber, weakness) = ExchangeMaskingAdditionSystem.GetEncryptionWeakness(25, input);
+            Assert.AreEqual(675280050, weakNumber);
+            Assert.AreEqual(96081673, weakness);
         }
         
-        [Test]
-        public void TestPart2()
-        {
-            var input = TestUtil
-                .GetFileContents("Day9.txt")
-                .Split(Environment.NewLine)
-                .Select(long.Parse)
-                .ToArray();
-            var output = ExchangeMaskingAdditionSystem.GetEncryptionWeakness(25, input);
-            Assert.AreEqual(96081673, output);
-        }
     }
 }

@@ -13,7 +13,7 @@ namespace AdventOfCode.UnitTest.IntegrationTests
         public void Setup()
         {
             _items = TestUtil
-                .GetFileContents("Day4.txt");
+                .GetFileContentsAsString("Day4.txt");
         }
         
         [Test]

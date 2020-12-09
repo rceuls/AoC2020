@@ -41,7 +41,7 @@ acc +6";
         public void TestPart1()
         {
             var input = TestUtil
-                .GetFileContents("Day8.txt")
+                .GetFileContentsAsString("Day8.txt")
                 .Split(Environment.NewLine);
             var output = GameConsole.GetLastValueBeforeInfiniteLoop(input);
             Assert.AreEqual(1563, output);
@@ -51,7 +51,7 @@ acc +6";
         public void TestPart2()
         {
             var input = TestUtil
-                .GetFileContents("Day8.txt")
+                .GetFileContentsAsString("Day8.txt")
                 .Split(Environment.NewLine);
             var output = GameConsole.GetValue(input);
             // 2604 == too high

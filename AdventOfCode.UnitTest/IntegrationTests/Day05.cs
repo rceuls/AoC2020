@@ -14,7 +14,7 @@ namespace AdventOfCode.UnitTest.IntegrationTests
         public void Setup()
         {
             _items = TestUtil
-                .GetFileContents("Day5.txt")
+                .GetFileContentsAsString("Day5.txt")
                 .Split(Environment.NewLine);
         }
 
