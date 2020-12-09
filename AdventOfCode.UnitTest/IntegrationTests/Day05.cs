@@ -18,14 +18,14 @@ namespace AdventOfCode.UnitTest.IntegrationTests
                 .Split(Environment.NewLine);
         }
 
-        [Test]
+        [Test(Description = "Day05_PartOneTest")]
         public void PartOneTest()
         {
             var max = _items.Select(BoardingPassScanner.CalculateSeatNumber).Max();
             Assert.AreEqual(835, max);
         }
         
-        [Test]
+        [Test(Description = "Day05_PartTwoTest")]
         public void PartTwoTest()
         {
             var seats = _items.Select(BoardingPassScanner.CalculateSeatNumber).ToHashSet();

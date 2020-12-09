@@ -7,7 +7,7 @@ namespace AdventOfCode.UnitTest.IntegrationTests
 {
     public class Day07
     {
-        [Test]
+        [Test(Description = "Day01_SampleData")]
         public void Part1Example()
         {
             var input = @"light red bags contain 1 bright white bag, 2 muted yellow bags.
@@ -23,7 +23,7 @@ dotted black bags contain no other bags.";
             Assert.AreEqual(4, BagCounter.GetOuterBagCount(input.Split(Environment.NewLine), "shiny gold").Part1);
         }
 
-        [Test]
+        [Test(Description = "Day07_PartOneAndTwoTests")]
         public void TestPart1And2()
         {
             var input = TestUtil

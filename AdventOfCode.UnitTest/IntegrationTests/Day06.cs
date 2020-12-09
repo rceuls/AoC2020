@@ -17,7 +17,7 @@ namespace AdventOfCode.UnitTest.IntegrationTests
                 .GetFileContentsAsString("Day6.txt");
         }
 
-        [Test]
+        [Test(Description = "Day06_PartOneTest")]
         public void PartOneTest()
         {
             var answersFulls=
@@ -26,7 +26,7 @@ namespace AdventOfCode.UnitTest.IntegrationTests
             Assert.AreEqual(6782, answersFulls.Sum());
         }
         
-        [Test]
+        [Test(Description = "Day06_PartTwoTest")]
         public void PartTwoTest()
         {
             var answersFulls=
@@ -35,7 +35,7 @@ namespace AdventOfCode.UnitTest.IntegrationTests
             Assert.AreEqual(3596, answersFulls.Sum());
         }
 
-        [Test]
+        [Test(Description = "Day06_PartValeskaTest")]
         public void PartValeska()
         {
             var input = @"abcdefgh

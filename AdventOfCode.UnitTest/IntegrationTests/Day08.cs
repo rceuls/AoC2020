@@ -7,7 +7,7 @@ namespace AdventOfCode.UnitTest.IntegrationTests
 {
     public class Day08
     {
-        [Test]
+        [Test(Description = "Day08_PartOneExampleTest")]
         public void Part1Example()
         {
             var input = @"nop +0
@@ -22,7 +22,7 @@ acc +6";
             Assert.AreEqual(5, GameConsole.GetLastValueBeforeInfiniteLoop(input.Split(Environment.NewLine)));          
         }
         
-        [Test]
+        [Test(Description = "Day08_PartTwoExampleTest")]
         public void Part2Example()
         {
             var input = @"nop +0
@@ -37,7 +37,7 @@ acc +6";
             Assert.AreEqual(8, GameConsole.GetValue(input.Split(Environment.NewLine)));          
         }
         
-        [Test]
+        [Test(Description = "Day08_PartOneTest")]
         public void TestPart1()
         {
             var input = TestUtil
@@ -47,7 +47,7 @@ acc +6";
             Assert.AreEqual(1563, output);
         }
         
-        [Test]
+        [Test(Description = "Day08_PartTwoTest")]
         public void TestPart2()
         {
             var input = TestUtil

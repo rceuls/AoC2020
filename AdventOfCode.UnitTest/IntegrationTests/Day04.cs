@@ -16,13 +16,13 @@ namespace AdventOfCode.UnitTest.IntegrationTests
                 .GetFileContentsAsString("Day4.txt");
         }
         
-        [Test]
+        [Test(Description = "Day03_PartOneTest")]
         public void PartOneTest()
         {
             Assert.AreEqual(250, PassportValidator.ValidPassportCountSimple(_items));
         }
         
-        [Test]
+        [Test(Description = "Day03_PartTwoTest")]
         public void PartTwoTest()
         {
             Assert.AreEqual(158, PassportValidator.ValidPassportCountComplex(_items));

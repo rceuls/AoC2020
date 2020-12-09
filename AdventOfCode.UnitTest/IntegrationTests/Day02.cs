@@ -20,13 +20,13 @@ namespace AdventOfCode.UnitTest.IntegrationTests
                 .ToArray();
         }
         
-        [Test]
+        [Test(Description = "Day02_PartOneTest")]
         public void PartOneTest()
         {
             Assert.AreEqual(416, PasswordPhilosophy.GetValidPasswords(_input, PasswordPhilosophy.RentalPlace.Sleds).Length);
         }
         
-        [Test]
+        [Test(Description = "Day02_PartTwoTest")]
         public void PartTwoTest()
         {
             Assert.AreEqual(688,PasswordPhilosophy.GetValidPasswords(_input, PasswordPhilosophy.RentalPlace.Tobogan).Length);

@@ -18,13 +18,13 @@ namespace AdventOfCode.UnitTest.IntegrationTests
                 .Split(Environment.NewLine);
         }
         
-        [Test]
+        [Test(Description = "Day03_PartOneTest")]
         public void PartOneTest()
         {
             Assert.AreEqual(156, SlopeTreeCounter.DescendAndCountTrees(_items, 1, 3));
         }
         
-        [Test]
+        [Test(Description = "Day03_PartTwoTest")]
         public void PartTwoTest()
         {
             var combos = new List<(int, int)> { (1, 1), (1, 3), (1, 5), (1, 7), (2, 1) };

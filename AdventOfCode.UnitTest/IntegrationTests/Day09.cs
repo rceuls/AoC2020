@@ -7,7 +7,7 @@ namespace AdventOfCode.UnitTest.IntegrationTests
 {
     public class Day09
     {
-        [Test]
+        [Test(Description = "Day09_ExampleUnitTest")]
         public void PartsExample()
         {
             var input = @"35
@@ -36,7 +36,7 @@ namespace AdventOfCode.UnitTest.IntegrationTests
 
         }
         
-        [Test]
+        [Test(Description = "Day09_PartFullTest")]
         public void TestFullData()
         {
             var input = TestUtil.GetFileContentsAsLongs("Day9.txt");
@@ -44,6 +44,5 @@ namespace AdventOfCode.UnitTest.IntegrationTests
             Assert.AreEqual(675280050, weakNumber);
             Assert.AreEqual(96081673, weakness);
         }
-        
     }
 }

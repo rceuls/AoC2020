@@ -20,14 +20,14 @@ namespace AdventOfCode.UnitTest.IntegrationTests
                 .ToArray();
         }
         
-        [Test]
+        [Test(Description = "Day01_PartOneTest")]
         public void PartOneTest()
         {
             Assert.AreEqual(712075, 
                 ExpenseReportCalculator.CreateExpenseReport(_input, ExpenseReportCalculator.ExpenseNumberCount.Two));
         }
         
-        [Test]
+        [Test(Description = "Day01_PartTwoTest")]
         public void PartTwoTest()
         {
             Assert.AreEqual(145245270,
