@@ -32,5 +32,18 @@ namespace AdventOfCode.UnitTest.IntegrationTests
             var input = reader.ReadToEnd();
             return input.Split(Environment.NewLine).Select(long.Parse).ToArray();
         }
+        
+        public static int[] GetFileContentsAsInts(string file)
+        {
+            var assembly = Assembly.GetAssembly(typeof(TestUtil));
+            if (assembly == null) throw new ArgumentException("assembly");
+            
+            var stream = assembly.GetManifestResourceStream($"AdventOfCode.UnitTest.IntegrationTests.Input.{file}");
+            if (stream == null) throw new ArgumentException("stream");
+
+            using var reader = new StreamReader(stream, Encoding.UTF8);
+            var input = reader.ReadToEnd();
+            return input.Split(Environment.NewLine).Select(int.Parse).ToArray();
+        }
     }
 }
