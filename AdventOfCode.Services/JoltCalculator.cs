@@ -18,7 +18,7 @@ namespace AdventOfCode.Services
         {
             if (counters.ContainsKey(key)) return counters[key];
             var counter = 0L;
-            for (var i = 1; i <= 3; i++)
+            for (var i = 1; i <= 3; i++) 
             {
                 if (key + i < input.Count && input[key + i] - input[key] <= 3)
                 {
