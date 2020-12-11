@@ -30,7 +30,6 @@ namespace AdventOfCode.Services
                 }
             }
 
-            var i = 1;
             while (true)
             {
                 var toChange = allIndex
