@@ -23,7 +23,7 @@ a
 
 b";
         [Test]
-        public void PartOneTest()
+        public void Day06_PartOneTest()
         {
             var answersFulls=
                 _answers.Split(Environment.NewLine + Environment.NewLine)
@@ -32,7 +32,7 @@ b";
         }
         
         [Test]
-        public void PartTwoTest()
+        public void Day06_PartTwoTest()
         {
             var answersFulls=
                 _answers.Split(Environment.NewLine + Environment.NewLine)

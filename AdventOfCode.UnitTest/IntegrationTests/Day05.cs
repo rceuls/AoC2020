@@ -19,14 +19,14 @@ namespace AdventOfCode.UnitTest.IntegrationTests
         }
 
         [Test(Description = "Day05_PartOneTest")]
-        public void PartOneTest()
+        public void Day05_Part01()
         {
             var max = _items.Select(BoardingPassScanner.CalculateSeatNumber).Max();
             Assert.AreEqual(835, max);
         }
         
         [Test(Description = "Day05_PartTwoTest")]
-        public void PartTwoTest()
+        public void Day05_Part02()
         {
             var seats = _items.Select(BoardingPassScanner.CalculateSeatNumber).ToHashSet();
             var max = seats.Max();

@@ -18,7 +18,7 @@ namespace AdventOfCode.UnitTest.IntegrationTests
         }
 
         [Test(Description = "Day06_PartOneTest")]
-        public void PartOneTest()
+        public void Day06_Full()
         {
             var answersFulls=
                 _items.Split(Environment.NewLine + Environment.NewLine)
@@ -27,7 +27,7 @@ namespace AdventOfCode.UnitTest.IntegrationTests
         }
         
         [Test(Description = "Day06_PartTwoTest")]
-        public void PartTwoTest()
+        public void Day06_Full_02()
         {
             var answersFulls=
                 _items.Split(Environment.NewLine + Environment.NewLine)
@@ -36,7 +36,7 @@ namespace AdventOfCode.UnitTest.IntegrationTests
         }
 
         [Test(Description = "Day06_PartValeskaTest")]
-        public void PartValeska()
+        public void Day06_Valeska()
         {
             var input = @"abcdefgh
 a

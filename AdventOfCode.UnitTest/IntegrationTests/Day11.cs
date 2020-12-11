@@ -1,4 +1,3 @@
-using System.Runtime.Serialization;
 using AdventOfCode.Services;
 using NUnit.Framework;
 
@@ -7,7 +6,7 @@ namespace AdventOfCode.UnitTest.IntegrationTests
     public class Day11
     {
         [Test]
-        public void Part11Example()
+        public void Day11_Example()
         {
             var input = @"L.LL.LL.LL
 LLLLLLL.LL
@@ -25,7 +24,7 @@ L.LLLLL.LL";
         }
 
         [Test]
-        public void Part1()
+        public void Day11_FullTest()
         {
             var data = TestUtil.GetFileContentsAsString("Day11.txt");
             Assert.AreEqual(2438, new SeatCalculator().CalculateTakenSeats(data));

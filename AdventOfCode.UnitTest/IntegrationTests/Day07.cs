@@ -8,7 +8,7 @@ namespace AdventOfCode.UnitTest.IntegrationTests
     public class Day07
     {
         [Test(Description = "Day01_SampleData")]
-        public void Part1Example()
+        public void Day07_Example()
         {
             var input = @"light red bags contain 1 bright white bag, 2 muted yellow bags.
 dark orange bags contain 3 bright white bags, 4 muted yellow bags.
@@ -24,7 +24,7 @@ dotted black bags contain no other bags.";
         }
 
         [Test(Description = "Day07_PartOneAndTwoTests")]
-        public void TestPart1And2()
+        public void Day07_Full()
         {
             var input = TestUtil
                 .GetFileContentsAsString("Day7.txt")

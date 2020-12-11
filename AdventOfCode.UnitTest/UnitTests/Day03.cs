@@ -7,7 +7,7 @@ namespace AdventOfCode.UnitTest.UnitTests
     public class Day03
     {
         [Test]
-        public void PartOneTest()
+        public void Day03_PartOneTest()
         {
             var lines = @"..##.........##.........##.........##.........##.........##.......
 #...#...#..#...#...#..#...#...#..#...#...#..#...#...#..#...#...#..

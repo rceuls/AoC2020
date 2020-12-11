@@ -8,7 +8,7 @@ namespace AdventOfCode.UnitTest.IntegrationTests
     public class Day09
     {
         [Test(Description = "Day09_ExampleUnitTest")]
-        public void PartsExample()
+        public void Day09_Example()
         {
             var input = @"35
 20
@@ -37,7 +37,7 @@ namespace AdventOfCode.UnitTest.IntegrationTests
         }
         
         [Test(Description = "Day09_PartFullTest")]
-        public void TestFullData()
+        public void Day09_Full()
         {
             var input = TestUtil.GetFileContentsAsLongs("Day9.txt");
             var (weakNumber, weakness) = ExchangeMaskingAdditionSystem.GetEncryptionWeakness(25, input);

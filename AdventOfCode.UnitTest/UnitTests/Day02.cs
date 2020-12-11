@@ -7,7 +7,7 @@ namespace AdventOfCode.UnitTest.UnitTests
     public class Day02
     {
         [Test]
-        public void PartOneTest()
+        public void Day02_PartOneTest()
         {
             var lines = new[]
             {
@@ -19,7 +19,7 @@ namespace AdventOfCode.UnitTest.UnitTests
         }
 
         [Test]
-        public void PartTwoTest()
+        public void Day02_PartTwoTest()
         {
             var lines = new[]
             {

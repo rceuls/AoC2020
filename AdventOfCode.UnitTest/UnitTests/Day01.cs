@@ -6,7 +6,7 @@ namespace AdventOfCode.UnitTest.UnitTests
     public class Day01
     {
         [Test]
-        public void PartOneTest()
+        public void Day01_PartOneTest()
         {
             var data = new[] { 1721, 979, 366, 299, 675, 1456 };
             var result = ExpenseReportCalculator.CreateExpenseReport(data, ExpenseReportCalculator.ExpenseNumberCount.Two);
@@ -14,7 +14,7 @@ namespace AdventOfCode.UnitTest.UnitTests
         }
 
         [Test]
-        public void PartTwoTest()
+        public void Day01_PartTwoTest()
         {
             var data = new[] { 1721, 979, 366, 299, 675, 1456 };
             var result = ExpenseReportCalculator.CreateExpenseReport(data, ExpenseReportCalculator.ExpenseNumberCount.Three);

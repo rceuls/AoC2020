@@ -8,7 +8,7 @@ namespace AdventOfCode.UnitTest.IntegrationTests
     public class Day08
     {
         [Test(Description = "Day08_PartOneExampleTest")]
-        public void Part1Example()
+        public void Day08_Example()
         {
             var input = @"nop +0
 acc +1
@@ -23,7 +23,7 @@ acc +6";
         }
         
         [Test(Description = "Day08_PartTwoExampleTest")]
-        public void Part2Example()
+        public void Day08_Example02()
         {
             var input = @"nop +0
 acc +1
@@ -38,7 +38,7 @@ acc +6";
         }
         
         [Test(Description = "Day08_PartOneTest")]
-        public void TestPart1()
+        public void Day08_Full()
         {
             var input = TestUtil
                 .GetFileContentsAsString("Day8.txt")
@@ -48,7 +48,7 @@ acc +6";
         }
         
         [Test(Description = "Day08_PartTwoTest")]
-        public void TestPart2()
+        public void Day08_Full_02()
         {
             var input = TestUtil
                 .GetFileContentsAsString("Day8.txt")
