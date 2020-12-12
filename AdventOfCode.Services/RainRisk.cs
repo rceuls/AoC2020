@@ -1,12 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
-using System.IO;
 using System.Linq;
 
 namespace AdventOfCode.Services
 {
-    public class RainRisk
+    public static class RainRisk
     {
         private static readonly List<char> CompassClockwise = new() {'N', 'E', 'S', 'W'};
         private static readonly List<char> CompassCounterClockwise = new() {'N', 'W', 'S', 'E'};
@@ -39,7 +38,7 @@ namespace AdventOfCode.Services
                 var prevBeaconPosition = beaconPositions.LastOrDefault();
                 if (CompassClockwise.Contains(move.Action))
                 {
-                    beaconPositions.Add(AddPosition(move, prevBeaconPosition.X, prevBeaconPosition.Y, prevBeaconPosition.Dir));
+                    beaconPositions.Add(CalculateNewPosition(move, prevBeaconPosition.X, prevBeaconPosition.Y, prevBeaconPosition.Dir));
                 }
                 else switch (move.Action)
                 {
@@ -84,7 +83,7 @@ namespace AdventOfCode.Services
                 var (x, y, dir) = positions[ix];
                 if (CompassClockwise.Contains(move.Action))
                 {
-                    positions.Add(AddPosition(move, x, y, dir));
+                    positions.Add(CalculateNewPosition(move, x, y, dir));
                 }
                 else
                 {
@@ -97,7 +96,7 @@ namespace AdventOfCode.Services
                             break;
                         default:
                             mvAction.Count = move.Count;
-                            positions.Add(AddPosition(mvAction, x, y, dir));
+                            positions.Add(CalculateNewPosition(mvAction, x, y, dir));
                             break;
                     }
                 }
@@ -133,7 +132,7 @@ namespace AdventOfCode.Services
             }
         }
 
-        private static (long X, long Y, char Dir) AddPosition(MoveAction move, long currX, long currY, char currDir)
+        private static (long X, long Y, char Dir) CalculateNewPosition(MoveAction move, long currX, long currY, char currDir)
         {
             return move.Action switch
             {
