@@ -8,10 +8,9 @@ namespace AdventOfCode.Services
 {
     public class RainRisk
     {
-        private static List<char> compassClockwise = new() {'N', 'E', 'S', 'W'};
-        private static List<char> compassCounterClockwise = new() {'N', 'W', 'S', 'E'};
+        private static readonly List<char> CompassClockwise = new() {'N', 'E', 'S', 'W'};
+        private static readonly List<char> CompassCounterClockwise = new() {'N', 'W', 'S', 'E'};
 
-        private static string FilePath = "/home/raf/dev/AoC2020/AdventOfCode.Services/RainRisk.csv";
         private record MoveAction
         {
             public MoveAction(char action, int count)
@@ -21,7 +20,7 @@ namespace AdventOfCode.Services
             }
             
             public int Count { get; set; }
-            public char Action { get; set; }
+            public char Action { get; }
 
             public static MoveAction Parse(string input)
             {
@@ -32,13 +31,13 @@ namespace AdventOfCode.Services
         public static long CalculateDistanceWithWaypoint(IEnumerable<string> input)
         {
             var allParsed = input.Select(MoveAction.Parse).ToImmutableArray();
-            var shipPositions = new List<(long X, long Y, char Dir)> {(0, 0, 'E')}; // X ( W <> E) Y (N <> S)
+            var shipPositions = new List<(long X, long Y)> {(0, 0 )}; // X ( W <> E) Y (N <> S)
             var beaconPositions = new List<(long X, long Y, char Dir)> {(10, 1, 'E')}; // X ( W <> E) Y (N <> S)
             foreach (var move in allParsed)
             {
                 var prevShipPosition = shipPositions.LastOrDefault();
                 var prevBeaconPosition = beaconPositions.LastOrDefault();
-                if (compassClockwise.Contains(move.Action))
+                if (CompassClockwise.Contains(move.Action))
                 {
                     beaconPositions.Add(AddPosition(move, prevBeaconPosition.X, prevBeaconPosition.Y, prevBeaconPosition.Dir));
                 }
@@ -48,8 +47,7 @@ namespace AdventOfCode.Services
                     {
                         var newX = prevShipPosition.X + prevBeaconPosition.X * move.Count;
                         var newY = prevShipPosition.Y + prevBeaconPosition.Y * move.Count;
-                        var newDir = prevShipPosition.Dir;
-                        shipPositions.Add((newX, newY, newDir));
+                        shipPositions.Add((newX, newY));
                         break;
                     }
                     case 'R':
@@ -71,7 +69,9 @@ namespace AdventOfCode.Services
                     break;
                 }
             }
-            return CalculateManhattanDistance(shipPositions.LastOrDefault());
+
+            var (x, y) = shipPositions.LastOrDefault();
+            return CalculateManhattanDistance(x, y);
         }
         
         public static long CalculateDistance(IEnumerable<string> input)
@@ -82,7 +82,7 @@ namespace AdventOfCode.Services
             foreach (var move in allParsed)
             {
                 var (x, y, dir) = positions[ix];
-                if (compassClockwise.Contains(move.Action))
+                if (CompassClockwise.Contains(move.Action))
                 {
                     positions.Add(AddPosition(move, x, y, dir));
                 }
@@ -105,12 +105,13 @@ namespace AdventOfCode.Services
                 ix++;
             }
 
-            return CalculateManhattanDistance(positions.LastOrDefault());
+            var pos = positions.LastOrDefault();
+            return CalculateManhattanDistance(pos.X, pos.Y);
         }
 
-        private static long CalculateManhattanDistance((long X, long Y, char Dir) lastPosition)
+        private static long CalculateManhattanDistance(long X, long Y)
         {
-            return Math.Abs(lastPosition.X) + Math.Abs(lastPosition.Y);
+            return Math.Abs(X) + Math.Abs(Y);
         }
 
         public static char GetCompassPosition(char currCompassPosition, int adjustment, bool clockwise)
@@ -118,17 +119,17 @@ namespace AdventOfCode.Services
             adjustment /= 90;
             if (clockwise)
             {
-                var newPos = compassClockwise.IndexOf(currCompassPosition);
+                var newPos = CompassClockwise.IndexOf(currCompassPosition);
                 newPos += adjustment;
                 newPos %= 4;
-                return compassClockwise[newPos];
+                return CompassClockwise[newPos];
             }
             else
             {
-                var newPos = compassCounterClockwise.IndexOf(currCompassPosition);
+                var newPos = CompassCounterClockwise.IndexOf(currCompassPosition);
                 newPos += adjustment;
                 newPos %= 4;
-                return compassCounterClockwise[newPos];
+                return CompassCounterClockwise[newPos];
             }
         }
 
