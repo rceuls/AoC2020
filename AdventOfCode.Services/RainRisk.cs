@@ -23,7 +23,12 @@ namespace AdventOfCode.Services
 
             public static MoveAction Parse(string input)
             {
-                return new (input[0], Convert.ToInt32(input.Substring(1)));
+                var actn = new MoveAction(input[0], Convert.ToInt32(input.Substring(1)));
+                if ((actn.Action == 'L' || actn.Action == 'R')&& (actn.Count < 0 || actn.Count > 360))
+                {
+                    throw new ArgumentException();
+                }
+                return actn;
             }
         }
 
