@@ -26,7 +26,7 @@ namespace AdventOfCode.UnitTest.IntegrationTests
         {
             var data = TestUtil.GetFileContentsAsString("Day13.txt").Split(Environment.NewLine);
             Assert.AreEqual(3385, ShuttleSearch.GetEarliestCalculatedTimestamp(data));
-            Assert.AreEqual(3385, ShuttleSearch.GetLastPart(data[1]));
+            Assert.AreEqual(600689120448303, ShuttleSearch.GetLastPart(data[1]));
         }
     }
 }
