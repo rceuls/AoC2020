@@ -40,5 +40,13 @@ namespace AdventOfCode.UnitTest.IntegrationTests
             var data = "0,20,7,16,1,18,15".Split(",").Select(int.Parse).ToArray();
             Assert.AreEqual(1025, NumbersGame.GetLastNumber(data));
         }
+        
+        
+        [Test]
+        public void TestFullPart02()
+        {
+            var data = "0,20,7,16,1,18,15".Split(",").Select(int.Parse).ToArray();
+            Assert.AreEqual(129262, NumbersGame.GetLastNumber(data, 30_000_000));
+        }
     }
 }

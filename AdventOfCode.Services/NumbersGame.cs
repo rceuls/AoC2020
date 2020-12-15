@@ -1,30 +1,32 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 
 namespace AdventOfCode.Services
 {
     public class NumbersGame
     {
-        public static ulong GetLastNumber(int[] input, int requestedIndex = 2020)
+        public static int GetLastNumber(int[] input, int requestedIndex = 2020)
         {
-            var data = input.Select(x => (ulong) x).ToList();
-            var counter = input.Length;
-            var lastNumber = (ulong)input.LastOrDefault();
-            while (counter < requestedIndex)
+            var next = 0;
+            var memory = new Dictionary<int, int>();
+            for (var counter = 1; counter < requestedIndex; counter++)
             {
-                var firstIndex = (ulong)data.SkipLast(1).ToList().LastIndexOf(lastNumber) + 1;
-                var secondIndex = (ulong)0;
-                if (firstIndex != 0)
-                {
-                    secondIndex = (ulong)data.LastIndexOf(lastNumber) + 1;
+                var current = input.Length >= counter ? input[counter - 1] : next;
+                next = memory.ContainsKey(current) ? counter - memory[current] : 0;
+                if (!memory.ContainsKey(current))
+                { 
+                    memory.Add(current, counter);
                 }
-                data.Add(secondIndex - firstIndex);
-                counter++;
-                lastNumber = data.LastOrDefault();
+                else
+                {
+                    memory[current] = counter;
+                }
             }
 
-            return data.Last();
+            return next;
         }
         
     }
