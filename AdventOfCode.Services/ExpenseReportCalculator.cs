@@ -30,7 +30,7 @@ namespace AdventOfCode.Services
         {
             var inputAsArray = input.OrderBy(x => x).ToArray();
 
-            var validResults = new HashSet<long>();
+            var validResult = 0L;
 
             for (var i = 0; i < inputAsArray.Length; i++)
             {
@@ -39,7 +39,7 @@ namespace AdventOfCode.Services
                     var sum = inputAsArray[i] + inputAsArray[j];
                     if (sum == TARGET_NUMBER)
                     {
-                        validResults.Add(inputAsArray[i] * inputAsArray[j]);
+                        validResult = inputAsArray[i] * inputAsArray[j];
                     }
                     else if (sum > TARGET_NUMBER)
                     {
@@ -48,14 +48,14 @@ namespace AdventOfCode.Services
                 }
             }
 
-            return validResults.Max();
+            return validResult;
         }
 
         private static long CreateExpenseReportThree(IEnumerable<int> input)
         {
             var inputAsArray = input.OrderBy(x => x).ToArray();
 
-            var validResults = new HashSet<long>();
+            var validResult = 0L;
 
             for (var i = 0; i < inputAsArray.Length; i++)
             {
@@ -66,7 +66,7 @@ namespace AdventOfCode.Services
                         var sum = inputAsArray[i] + inputAsArray[j] + inputAsArray[k];
                         if (sum == TARGET_NUMBER)
                         {
-                            validResults.Add(inputAsArray[i] * inputAsArray[j] * inputAsArray[k]);
+                            validResult = inputAsArray[i] * inputAsArray[j] * inputAsArray[k];
                         }
                         else if (sum > TARGET_NUMBER)
                         {
@@ -77,7 +77,7 @@ namespace AdventOfCode.Services
                 }
             }
 
-            return validResults.Max();
+            return validResult;
         }
     }
 }

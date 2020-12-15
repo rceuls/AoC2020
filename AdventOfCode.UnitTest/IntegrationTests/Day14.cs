@@ -7,7 +7,7 @@ namespace AdventOfCode.UnitTest.IntegrationTests
     public class Day14
     {
         [Test]
-        public void Day14_Example01()
+        public void Day14_Example_01()
         {
             var input = @"mask = XXXXXXXXXXXXXXXXXXXXXXXXXXXXX1XXXX0X
 mem[8] = 11
@@ -17,7 +17,7 @@ mem[8] = 0";
         }
         
         [Test]
-        public void Day14_Example02()
+        public void Day14_Example_02()
         {
             var input = @"mask = 000000000000000000000000000000X1001X
 mem[42] = 100
@@ -27,14 +27,14 @@ mem[26] = 1";
         }
         
         [Test]
-        public void Day13_FullTest01()
+        public void Day14_Full_Part1()
         {
             var data = TestUtil.GetFileContentsAsString("Day14.txt").Split(Environment.NewLine);
             Assert.AreEqual(14862056079561, DockingData.Part1(data));
         }
         
         [Test]
-        public void Day13_FullTest02()
+        public void Day14_Full_Part2()
         {
             var data = TestUtil.GetFileContentsAsString("Day14.txt").Split(Environment.NewLine);
             Assert.AreEqual(3296185383161, DockingData.Part2(data));
