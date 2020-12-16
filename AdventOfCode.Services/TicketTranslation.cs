@@ -40,10 +40,12 @@ namespace AdventOfCode.Services
                 }
             }
 
+            // order by possible positions.
             potentialPositions = potentialPositions.OrderBy(x => x.Value.Count).ToDictionary(x => x.Key, y => y.Value);
             var passedIndexes = new HashSet<int>();
             foreach (var (_, value) in potentialPositions)
             {
+                // filter out all used positions if we have more than one position.
                 if (value.Count > 1)
                 {
                     value.RemoveAll(x => passedIndexes.Contains(x));
@@ -52,16 +54,11 @@ namespace AdventOfCode.Services
                 passedIndexes.Add(value.FirstOrDefault());
             }
 
-            var depData = new List<int>();
-            foreach (var kvp in potentialPositions)
-            {
-                if (kvp.Key.StartsWith("departure"))
-                {
-                    depData.Add(myLine[kvp.Value[0]]);
-                }
-            }
+            var depData = potentialPositions
+                .Where(kvp => kvp.Key.StartsWith("departure"))
+                .Select(kvp => (ulong)myLine[kvp.Value[0]]).ToList();
 
-            return depData.Aggregate(1ul, (x, y) => x * (ulong)y);
+            return depData.Aggregate(1ul, (x, y) => x * y);
         }
 
         private static Dictionary<string, HashSet<int>> GetLabelsAndValidIndexes(List<string> fields, HashSet<int> allIndexesCovered)
@@ -94,36 +91,14 @@ namespace AdventOfCode.Services
         {
             var fields = input[0];
             var otherTickets = input[2].Skip(1);
+            var allIndexesCovered = new HashSet<int>();
+            GetLabelsAndValidIndexes(fields, allIndexesCovered);
 
-            var indexesCovered = new HashSet<int>();
-            foreach (var field in fields)
-            {
-                var positions = field.Split(":")[1].Split("or");
-                foreach(var pos in positions)
-                {
-                    var indexes = pos.Split('-').Select(int.Parse).ToArray();
-                    var start = indexes[0];
-                    var end = indexes[1];
-                    while (start <= end)
-                    {
-                        indexesCovered.Add(start);
-                        start++;
-                    }
-                }
-            }
-            var errorRate = 0;
-            foreach (var line in otherTickets)
-            {
-                foreach (var item in line.Split(",").Select(int.Parse).ToList())
-                {
-                    if (!indexesCovered.Contains(item))
-                    {
-                        errorRate += item;
-                    }
-                }
-            }
-
-            return errorRate;
+            return otherTickets.Sum(line => line.Split(",")
+                .Select(int.Parse)
+                .ToList()
+                .Where(item => !allIndexesCovered.Contains(item))
+                .Sum());
         }
     }
 }
