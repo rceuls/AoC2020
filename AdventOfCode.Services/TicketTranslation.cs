@@ -19,14 +19,21 @@ namespace AdventOfCode.Services
             var allIndexesCovered = new HashSet<int>();
             var labels = GetLabelsAndValidIndexes(fields, allIndexesCovered);
             
-            var validLines = otherTickets
-                .Select(line => line.Split(",").Select(int.Parse).ToList())
-                .Where(x =>  IsValidLine(allIndexesCovered, x))
-                .ToList();
-            
-            validLines.Add(myLine);
+            var validLines = GetValidLines(otherTickets, allIndexesCovered, myLine);
 
-            var potentialPositions = labels.ToDictionary(x => x.Key,y => new List<int>());
+            var potentialPositions = GetPotentialPositions(labels, validLines);
+
+            // ulong b/c fuck you overflows
+            var depData = potentialPositions
+                .Where(kvp => kvp.Key.StartsWith("departure"))
+                .Select(kvp => (ulong)myLine[kvp.Value[0]]).ToList();
+
+            return depData.Aggregate(1ul, (x, y) => x * y);
+        }
+
+        private static Dictionary<string, List<int>> GetPotentialPositions(Dictionary<string, HashSet<int>> labels, List<List<int>> validLines)
+        {
+            var potentialPositions = labels.ToDictionary(x => x.Key, y => new List<int>());
             for (var column = 0; column < validLines[0].Count; column++)
             {
                 var colValues = validLines.Select(x => x[column]).ToList();
@@ -40,7 +47,7 @@ namespace AdventOfCode.Services
                 }
             }
 
-            // order by possible positions.
+            // order by possible positions. 
             potentialPositions = potentialPositions.OrderBy(x => x.Value.Count).ToDictionary(x => x.Key, y => y.Value);
             var passedIndexes = new HashSet<int>();
             foreach (var (_, value) in potentialPositions)
@@ -54,11 +61,20 @@ namespace AdventOfCode.Services
                 passedIndexes.Add(value.FirstOrDefault());
             }
 
-            var depData = potentialPositions
-                .Where(kvp => kvp.Key.StartsWith("departure"))
-                .Select(kvp => (ulong)myLine[kvp.Value[0]]).ToList();
+            return potentialPositions;
+        }
 
-            return depData.Aggregate(1ul, (x, y) => x * y);
+        private static List<List<int>> GetValidLines(IEnumerable<string> otherTickets, 
+            IReadOnlySet<int> allIndexesCovered, 
+            List<int> myLine)
+        {
+            var validLines = otherTickets
+                .Select(line => line.Split(",").Select(int.Parse).ToList())
+                .Where(x => IsValidLine(allIndexesCovered, x))
+                .ToList();
+
+            validLines.Add(myLine);
+            return validLines;
         }
 
         private static Dictionary<string, HashSet<int>> GetLabelsAndValidIndexes(List<string> fields, HashSet<int> allIndexesCovered)
