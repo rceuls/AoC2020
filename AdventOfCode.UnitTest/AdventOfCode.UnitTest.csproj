@@ -26,6 +26,7 @@
     <EmbeddedResource Include="IntegrationTests\Input\Day14.txt" />
     <EmbeddedResource Include="IntegrationTests\Input\Day16.txt" />
     <EmbeddedResource Include="IntegrationTests\Input\Day17.txt" />
+    <EmbeddedResource Include="IntegrationTests\Input\Day18.txt" />
     <EmbeddedResource Include="IntegrationTests\Input\Day2.txt" />
     <EmbeddedResource Include="IntegrationTests\Input\Day3.txt" />
     <EmbeddedResource Include="IntegrationTests\Input\Day4.txt" />
